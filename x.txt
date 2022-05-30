@@ -1,0 +1,247 @@
+/*
+* +append(data: char[])            Appends a char array into this string builder.
+* +append(data: char[], offset: int, len: int)             Appends a subarray in data into this string builder.
+* +append(v: aPrimitiveType)                Appends a primitive-type value as a string to this builder.
+* +append(s: String)                     Appends a string to this string builder.
+* +delete(startIndex: int, endIndex: int)         Deletes characters from startIndex to endIndex–1.
+* +deleteCharAt(index: int)                  Deletes a character at the specified index.
+* +insert(index: int, data: char[], offset: int,len: int)      Inserts a subarray of the data in the array into the builder at the specified index.
+************
+* index - position at which to insert subarray.
+* str - A char array.
+* offset - the index of the first char in subarray to be inserted.
+* len - the number of chars in the subarray to be inserted.
+*************
+* 
+*
+*
+*
+* */
+
+***********************************************
+Double.parseDouble(str) or Integer.parseInt(str) to convert a string to a double value or an int value
+***********************************************
+
+***********************************************
++valueOf(c: char): String
++valueOf(data: char[]): String
++valueOf(d: double): String
++valueOf(s: String): Integer
++valueOf(s: String, radix: int): Integer
++parseInt(s: String): int
++parseInt(s: String, radix: int): int
++valueOf(s: String): Double
++valueOf(s: String, radix: int): Double
++parseDouble(s: String): double
++parseDouble(s: String, radix: int): double
+***********************************************
+
+***********************************************
+s1.replace('o', 'T')
+s1.replaceAll("o", "T")
+s1.replaceFirst("o", "T")
+s1.toCharArray()
+***********************************************
+Using split:
+String[] tokens = "Welcome to Java and HTML".split(' '); ' ' => It's the character I want to split by
+s1 = tokens[0];
+s2 = tokens[1];
+***********************************************
+
+***********************************************
+public class Test {
+  public static void main(String[] args) {
+    System.out.println("Hi, ABC, good".matches("ABC "));
+    System.out.println("Hi, ABC, good".matches(".*ABC.*"));
+    System.out.println("A,B;C".replaceAll(",;", "#"));
+    System.out.println("A,B;C".replaceAll("[,;]", "#"));
+
+    String[] tokens = "A,B;C".split("[,;]");
+    for (int i = 0; i < tokens.length; i++)
+      System.out.print(tokens[i] +  " ");
+  }
+}
+***********************************************
+
+***********************************************
+        Integer i = Integer.parseInt("23", 8);
+        System.out.println(i);
+***********************************************
+String s = Integer.toString(8); //to convrt (8) to String.
+String s = Double.toString(8.0); //to convert (8.0) to String.
+int cxc = Integer.parseInt("8"); //to convert ("8") to Integer.
+double xcxcxs = Double.parseDouble("8.0"); //to convert ("8.0") to Double.
+***********************************************
+
+***********************************************
+ LargeFactorial by BigIngeger:
+
+    public static BigInteger f(long n){
+        BigInteger result = BigInteger.ONE;
+
+        for (int i = 1; i <= n; i++){
+            result = result.multiply(new BigInteger(Integer.toString(i)));
+        }
+
+        return result;
+    }
+***********************************************
+
+***********************************************
+To remove item from array:
+    public static int[] removeTheElement(int[] arr, int index)
+    {
+ 
+        // If the array is empty
+        // or the index is not in array range
+        // return the original array
+        if (arr == null || index < 0
+            || index >= arr.length) {
+ 
+            return arr;
+        }
+ 
+        // Create another array of size one less
+        int[] anotherArray = new int[arr.length - 1];
+ 
+        // Copy the elements except the index
+        // from original array to the other array
+        for (int i = 0, k = 0; i < arr.length; i++) {
+ 
+            // if the index is
+            // the removal element index
+            if (i == index) {
+                continue;
+            }
+ 
+            // if the index is not
+            // the removal element index
+            anotherArray[k++] = arr[i];
+        }
+ 
+        // return the resultant array
+        return anotherArray;
+    }
+In main method:
+        // Get the array
+        int[] arr = { 1, 2, 3, 4, 5 };
+ 
+        // Print the resultant array
+        System.out.println("Original Array: "
+                           + Arrays.toString(arr));
+ 
+        // Get the specific index
+        int index = 2;
+ 
+        // Print the index
+        System.out.println("Index to be removed: " + index);
+ 
+        // Remove the element
+        arr = removeTheElement(arr, index);
+ 
+        // Print the resultant array
+        System.out.println("Resultant Array: "
+                           + Arrays.toString(arr));
+***********************************************
+
+***********************************************
+    public void dropStudent(String student){
+        for (int i = 0; i < students.length; i++) {
+
+            if (student.equalsIgnoreCase(students[i])) {
+
+                students[i] = "null"; // sets dropped student's value to null
+                numOfStudents--;
+                while (i < numOfStudents) {
+                    students[i] = students[i + 1];
+                    i++;
+                }
+                break;
+            }
+        }
+    }
+***********************************************
+
+***********************************************
+    public String toString(){
+        return "Created on " + getDateCreated() + " \nColor: " + color + " and filled: " + filled;
+    }
+***********************************************
+
+***********************************************
+
+////////////////////////////////////////////////////////////////////////////////START FILE////////////////////////////////////////////////////////////////////////////
+
+//        File file = new File("text.txt");
+//        System.out.println("Does it exist? " + file.exists());
+//        System.out.println("The file has " + file.length() + " byte(s)");
+//        System.out.println("Can it be read? " + file.canRead());
+//        System.out.println("Can it be written? " + file.canWrite());
+//        System.out.println("Is it a directory? " + file.isDirectory());
+//        System.out.println("Is it a file? " + file.isFile());
+//        System.out.println("Is it absolute? " + file.isAbsolute());
+//        System.out.println("Is it hidden? " + file.isHidden());
+//        System.out.println("Absolute path is " + file.getAbsolutePath());
+
+
+    /*********************Write Data Like Book*///////////////////////////////////
+
+//        File file = new File("scores.txt");
+//        if (file.exists()){
+//            System.out.println("File already exists");
+//            System.exit(0);
+//        }
+//
+//        try (
+//            PrintWriter output = new PrintWriter(file);
+//        ) {
+//            output.print("John T Smith ");
+//            output.println(90);
+//            output.print("Eric K Jones ");
+//            output.println(85);
+//
+//        }
+
+
+        /*************************Write to File*////////////////////////////////
+//        try {
+//            BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Mohammad Abu Seada\\Desktop\\Text\\output.txt"));
+//            bw.write("Mohammad");
+//            bw.write("Razan");
+//            bw.write("Hala");
+//            bw.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
+
+        /***************************Read from File Like Book*///////////////////////////////////////
+
+//        File file = new File("scores.txt");
+//        Scanner input = new Scanner(file);
+//
+//        while (input.hasNext()){
+//            String firstName = input.next();
+//            String mi = input.next();
+//            String lastName = input.next();
+//            int score = input.nextInt();
+//            System.out.println(firstName + " " + mi + " " + lastName + " " + score);
+//        }
+//
+//        input.close();
+
+
+        /*************************Read from File*////////////////////////////////
+
+//        try {
+//            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Mohammad Abu Seada\\Desktop\\Text\\output.txt"));
+//            String s;
+//            while ((s = br.readLine()) != null){
+//                System.out.println(s);
+//            }
+//            br.close();
+//        } catch (IOException e){
+//            e.printStackTrace();
+//        }
+////////////////////////////////////////////////////////////////////////////////END FILE////////////////////////////////////////////////////////////////////////////
